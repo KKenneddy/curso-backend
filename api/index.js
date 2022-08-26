@@ -5,6 +5,9 @@ const user = require('./components/user/network');
 
 const app = express();
 
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
 // router
 app.use('/api/user', user);
 
