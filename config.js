@@ -1,8 +1,8 @@
 module.exports = {
     api: {
-        PORT : process.env.PORT || 3000,
+        port: process.env.API_PORT || 3000,
     },
     jwt: {
-        secret : process.env.JWT_SECRET || 'notasecret!',
-    }
+        secret: process.env.JWT_SECRET || 'notasecret!',
+    },
 }
