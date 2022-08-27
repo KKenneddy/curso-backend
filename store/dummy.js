@@ -1,7 +1,7 @@
 const db = {
-    'user':[
+    "user":[
         {id: '1', name: 'Kennedy'},
-        {id: '2', name: 'Patricia'}
+        {id: '2', name: 'jean'},
     ]
 }
 
@@ -10,8 +10,8 @@ async function list(tabla){
 }
 
 async function get(tabla, id){
-    let col = await list(tabla);
-    return col.filter(item => item.id === id)[0];
+    let users = await list(tabla);
+    return users.find(user => user.id === id);
 }
 
 async function upsert(tabla, data){
@@ -20,6 +20,9 @@ async function upsert(tabla, data){
 }
 
 async function remove(tabla, id){
+    let users = await list(tabla);
+    let index = users.findIndex(user => user.id === id);
+    db[tabla].splice(index, 1);
     return true;
 }
 

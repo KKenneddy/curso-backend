@@ -8,7 +8,7 @@ module.exports = function (injectedStore) {
     }
 
     function list() {
-        return store.list(TABLA)
+        return store.list(TABLA);
     }
 
     function get(id) {
@@ -19,7 +19,6 @@ module.exports = function (injectedStore) {
         const user = {
             name: body.name
         }
-
         if(body.id){
             user.id = body.id;
         }else{
@@ -27,9 +26,15 @@ module.exports = function (injectedStore) {
         }
         return store.upsert(TABLA, user);
     }
+
+    function remove(id){
+        return store.remove(TABLA, id)
+    }
+
     return {
         list,
         get,
-        upsert
+        upsert,
+        remove
     };
 }
